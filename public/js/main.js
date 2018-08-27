@@ -1,1 +1,6 @@
-ReactDOM.render(React.createElement(TodoList), document.getElementById('root'));
+(function(app) {
+  ReactDOM.render(
+    React.createElement(app.TodoList),
+    document.getElementById('root')
+  );
+})(window.app || (window.app = {}));

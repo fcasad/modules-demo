@@ -1,4 +1,4 @@
-(function(app) {
+define(['react'], function(React) {
   var AddTodo = React.createClass({
     getDefaultProps: function() {
       return { onAdd: function() {} };
@@ -27,5 +27,5 @@
     },
   });
 
-  app.AddTodo = AddTodo;
-})(window.app || (window.app = {}));
+  return AddTodo;
+});

@@ -1,6 +1,10 @@
-(function(app) {
+define(['react', 'react-dom', './components/TodoList'], function(
+  React,
+  ReactDOM,
+  TodoList
+) {
   ReactDOM.render(
-    React.createElement(app.TodoList),
+    React.createElement(TodoList),
     document.getElementById('root')
   );
-})(window.app || (window.app = {}));
+});

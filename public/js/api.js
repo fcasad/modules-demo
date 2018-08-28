@@ -1,10 +1,10 @@
-(function(app) {
+define([], function() {
   var todos = [
     { id: 1, name: 'Do dishes', completed: true },
     { id: 2, name: 'Call mom', completed: false },
   ];
 
-  app.api = {
+  return {
     getTodos: function(cb) {
       setTimeout(function() {
         cb(todos);
@@ -49,4 +49,4 @@
       }, 1000);
     },
   };
-})(window.app || (window.app = {}));
+});

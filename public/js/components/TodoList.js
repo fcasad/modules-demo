@@ -1,4 +1,9 @@
-(function(app) {
+define(['react', '../api', './Todo', './AddTodo'], function(
+  React,
+  api,
+  Todo,
+  AddTodo
+) {
   var TodoList = React.createClass({
     getInitialState: function() {
       return { todos: [], didFetch: false };
@@ -8,7 +13,7 @@
     },
     pullTodos: function() {
       var setState = this.setState.bind(this);
-      app.api.getTodos(function(todos) {
+      api.getTodos(function(todos) {
         setState({ todos: todos, didFetch: true });
       });
     },
@@ -16,7 +21,7 @@
       var setState = this.setState.bind(this);
       setState({ didFetch: false });
       var ctx = this;
-      app.api.updateTodo(id, { completed: completed }, function(updatedTodo) {
+      api.updateTodo(id, { completed: completed }, function(updatedTodo) {
         var newTodos = ctx.state.todos.map(function(todo) {
           if (todo.id === updatedTodo.id) {
             return updatedTodo;
@@ -30,7 +35,7 @@
       var setState = this.setState.bind(this);
       setState({ didFetch: false });
       var ctx = this;
-      app.api.deleteTodo(id, function() {
+      api.deleteTodo(id, function() {
         var newTodos = ctx.state.todos.filter(function(todo) {
           return todo.id !== id;
         });
@@ -41,7 +46,7 @@
       var setState = this.setState.bind(this);
       setState({ didFetch: false });
       var ctx = this;
-      app.api.addTodo(todo, function(todo) {
+      api.addTodo(todo, function(todo) {
         var newTodos = ctx.state.todos.concat(todo);
         setState({ todos: newTodos, didFetch: true });
       });
@@ -55,7 +60,7 @@
         { className: 'todo-list' },
         this.state.didFetch
           ? this.state.todos.map(function(todo) {
-              return React.createElement(app.Todo, {
+              return React.createElement(Todo, {
                 key: 'todo' + todo.id,
                 todo: todo,
                 onToggle: toggleTodo,
@@ -63,10 +68,10 @@
               });
             })
           : 'Loading...',
-        React.createElement(app.AddTodo, { onAdd: addTodo })
+        React.createElement(AddTodo, { onAdd: addTodo })
       );
     },
   });
 
-  app.TodoList = TodoList;
-})(window.app || (window.app = {}));
+  return TodoList;
+});

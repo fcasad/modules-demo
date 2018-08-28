@@ -1,4 +1,4 @@
-(function(app) {
+define(['react'], function(React) {
   var Todo = React.createClass({
     getDefaultProps: function() {
       return {
@@ -28,5 +28,5 @@
     },
   });
 
-  app.Todo = Todo;
-})(window.app || (window.app = {}));
+  return Todo;
+});

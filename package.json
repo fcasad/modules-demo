@@ -5,15 +5,19 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon --ext js,html,css server.js"
+    "dev": "nodemon --ext js,html,css server.js",
+    "build": "browserify src/js/main.js -o public/js/bundle.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2"
   },
   "devDependencies": {
+    "browserify": "^16.2.2",
     "nodemon": "^1.18.3"
   }
 }

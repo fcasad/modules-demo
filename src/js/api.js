@@ -3,7 +3,7 @@ var todos = [
   { id: 2, name: 'Call mom', completed: false },
 ];
 
-module.exports = {
+export default {
   getTodos: function(cb) {
     setTimeout(function() {
       cb(todos);

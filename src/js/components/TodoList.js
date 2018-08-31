@@ -1,8 +1,8 @@
-var React = require('react');
+import React from 'react';
 
-var api = require('../api');
-var Todo = require('./Todo');
-var AddTodo = require('./AddTodo');
+import api from '../api';
+import Todo from './Todo';
+import AddTodo from './AddTodo';
 
 var TodoList = React.createClass({
   getInitialState: function() {
@@ -73,4 +73,4 @@ var TodoList = React.createClass({
   },
 });
 
-module.exports = TodoList;
+export default TodoList;

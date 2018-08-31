@@ -1,4 +1,4 @@
-var React = require('react');
+import React from 'react';
 
 var AddTodo = React.createClass({
   getDefaultProps: function() {
@@ -28,4 +28,4 @@ var AddTodo = React.createClass({
   },
 });
 
-module.exports = AddTodo;
+export default AddTodo;

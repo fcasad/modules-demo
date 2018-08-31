@@ -1,4 +1,4 @@
-var React = require('react');
+import React from 'react';
 
 var Todo = React.createClass({
   getDefaultProps: function() {
@@ -29,4 +29,4 @@ var Todo = React.createClass({
   },
 });
 
-module.exports = Todo;
+export default Todo;
